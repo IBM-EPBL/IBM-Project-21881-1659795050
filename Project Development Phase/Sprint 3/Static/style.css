@@ -1,0 +1,95 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.header{
+    float:left;
+    color: white;
+    padding: 10px;
+}
+
+#homepage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-image: url("https://static4.depositphotos.com/1002709/323/i/450/depositphotos_3231279-stock-photo-human-kidney.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+#homepage h1{
+    color: white;
+    text-shadow: 0px 0px 10px white;
+    font-size: 35px;
+    margin-top: 100px;
+    margin-right: 60px;
+}
+
+.content{
+    color: white;
+    font-size: 15px;
+    margin-top: 50px;
+    margin-right: 100px;
+    margin-left: 700px;
+    float: left;
+    justify-content: center;
+    align-content: center;
+}
+
+#secondpage{
+    width: 100%;
+    height:100%;
+    background-image: url("https://static4.depositphotos.com/1002709/323/i/450/depositphotos_3231279-stock-photo-human-kidney.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+}
+
+.navigation{
+    float: left;
+    position: fixed;
+    width: 100%;
+    float: left;
+    background-color: black;
+    opacity: 0.75;
+    height: 70px; 
+}
+
+.navbar{
+    float: right;
+}
+
+.navbar li{
+    float: left;
+    padding: 10px;
+    margin: 20px;
+    list-style: none;
+
+}
+
+.navbar li a{
+    color: white;
+    font-size: 17px;
+    padding: 15px;
+    transition-duration: 0.5s;
+}
+
+.navbar li a:hover{
+    background-color: white;
+    color: black;
+    transition-duration: 0.5s;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.options{
+    float: right;
+    padding-top: 150px;
+    align-content: center;
+    padding-right: 200px;
+}
+
