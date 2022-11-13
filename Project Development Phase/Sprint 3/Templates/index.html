@@ -1,0 +1,255 @@
+
+<html>
+    <head>
+        <title>Kidney Disease Detection</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="canonical" href="https://getbootstrap.com/docs/5.0/components/buttons/">
+ 
+    </head>
+    <body>
+
+        <div class="navigation">
+            
+            <div>
+                <ul class="navbar">
+                    <li><a href="#homepage">Home</a></li>
+                    <li><a href="#secondpage">Predict</a></li>
+                    <li><a href="#thirdpage">Result</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div id = "homepage"> 
+            <h1>Early Detection Of Chronic Kidney Disease</h1>         
+        
+            <div class="content">
+                Chronic kidney disease includes conditions that damage your kidneys and 
+                decrease their ability to keep you healthy by filtering wastes from your 
+                blood. If kidney disease worsens, wastes can build to high levels in your 
+                blood and make you feel sick. You may develop complications like high blood 
+                pressure, anemia (low blood count), weak bones, poor nutritional health,
+                and nerve damage.
+                Kidney disease also increases your risk of having heart and blood vessel 
+                disease. These problems may happen slowly over a long time. Early detection
+                and treatment can often keep chronic kidney disease from getting worse. 
+                When kidney disease progresses, it may eventually lead to kidney failure, 
+                which requires dialysis or a kidney transplant to maintain life.
+            </div>
+        </div>
+        <div id = "secondpage">
+            <style>
+        
+                /* Color */
+                body{
+                    background-image:url("https://static4.depositphotos.com/1002709/323/i/450/depositphotos_3231279-stock-photo-human-kidney.jpg");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 100% 100%;
+                    font-family: Arial, Helvetica,sans-serif;
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                    width: 100%;
+                    height: 100%;
+                    /* display: block;
+                    flex-direction: column; */
+                }
+                
+                
+                /* Heading Font */
+                .container-heading{
+                    margin: 0;
+                }               
+                
+                
+                /* Box */
+                        #first {
+                            border-radius: 14px;
+                            height: 30px;
+                            width: 300px;
+                            font-size: 18px;
+                            text-align: center;
+                        }
+                
+                        #second {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 160px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                        #third {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 120px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                        #fourth {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 160px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                        #fifth {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 130px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                        #sixth {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 200px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                        #seventh {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 180px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                        #eight {
+                            border-radius: 14px;
+                            height: 25px;
+                            width: 260px;
+                            font-size: 20px;
+                            text-align: center;
+                        }
+                
+                
+                /* Submit Button */
+                #sub {
+                            width: 120px;
+                            height: 43px;
+                            text-align: center;
+                            border-radius: 14px;
+                            font-size: 18px;
+                        }
+                
+                
+                
+            </style>
+            
+        <body>
+            
+        
+            <div style="color:black;" class="ml-container">
+                <form action="{{ url_for('predict') }}" method="POST">
+                    <br>
+                    <h3>sg</h3>
+                    <input id="first" name="sg" placeholder="Ex: (1.005,1.010,1.015,1.020,1.025)" required="required">
+                    <br>
+                    <h3>htn</h3>
+                    <input id="second" name="htn" placeholder="Yes = 1, No=0" required="required">
+                    <br>
+                    <h3>hemo</h3>
+                    <input id="third" name="hemo" placeholder="in gms" required="required">
+                    <br>
+                    <h3>dm</h3>
+                    <input id="fourth" name="dm" placeholder="Yes = 1, No=0" required="required">
+                    <br>
+                    <h3>al</h3>
+                    <input id="fifth" name="al" placeholder="(0,1,2,3,4,5)" required="required">
+                    <br>
+                    <h3>appet</h3>
+                    <input id="sixth" name="appet" placeholder="Good = 1, Poor = 0" required="required">
+                    <br>
+                    <h3>rbc</h3>
+                    <input id="seventh" name="rc" placeholder="in Millions/cmm" required="required">
+                    <h3>pc</h3>
+                    <input id="eight" name="pc" placeholder="Normal = 0, Abnormal = 1" required="required">
+                    <br>
+                    <br>
+                
+                    <button id="sub" type="submit ">Submit</button>
+                    <br>
+                    <br>
+                    
+                    
+        
+        
+                </form>
+            </div>
+        
+        </body>
+        </div>
+        <div id = "thirdpage">
+            <body>
+
+                <form action="{{ url_for('predict')}}" method="post">
+            
+                    <!-- Result -->
+                    <div style="color:black;" class="results">
+                        {% if prediction==1 %}
+                            <h1><span class='danger'>Oops!<br><br>You have CHRONIC KIDNEY DISEASE.<br><br>Please Consult Doctor.</span></h1>
+                            <center><img src="https://media.istockphoto.com/id/1194671157/vector/sad-suffering-sick-and-cute-healthy-amazement-surviving-kidney-characters-human-anatomy.jpg?s=612x612&w=0&k=20&c=VYLu602WpJF-46SzwZ97h8wAJtlruR7NktzRqo1soe4=" alt="STROKE Image"></center>
+                        {% elif prediction==0 %}
+                            <h1><span class='safe'>Congratulations!<br><br>You DON'T have Chronic Kidney Disease.</span></h1>
+                            <center><img src="https://media.istockphoto.com/id/157030584/vector/thumb-up-emoticon.jpg?s=612x612&w=0&k=20&c=GGl4NM_6_BzvJxLSl7uCDF4Vlo_zHGZVmmqOBIewgKg=" alt="Not STROKE Image" width="400" height="400"></center>
+                        {% endif %}
+                    </div>
+                
+            
+                </form>
+                <div>
+                        <br><br> 
+            
+                        <p class='footer-description'>Sri Sairam Engineering College, Chennai</p>
+            
+                </div>
+            
+            
+            <style>
+            
+            /* Background Image */
+            body
+            {
+            background-image:url("https://static4.depositphotos.com/1002709/323/i/450/depositphotos_3231279-stock-photo-human-kidney.jpg");
+            height: 100%;
+            width: 100%;
+            
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            
+            }
+            
+            /* Color */
+            body{
+                font-family: Arial, Helvetica,sans-serif;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            
+            /* Heading Font */
+            .container-heading{
+                margin: 0;
+            }
+            
+            
+            
+            </style>
+            </body>
+        </div>
+
+    </body>
+</html>
